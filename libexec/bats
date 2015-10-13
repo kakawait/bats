@@ -98,7 +98,9 @@ for option in "${options[@]}"; do
     pretty=""
     ;;
   "log" )
-    export BATS_LOG="/tmp/bats.log"
+    if [[ -z "$BATS_LOG" ]]; then
+      export BATS_LOG="/tmp/bats.log"
+    fi
     touch "$BATS_LOG"
     ;;
   "p" | "pretty" )
